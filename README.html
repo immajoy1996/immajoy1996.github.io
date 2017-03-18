@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<style>
+
+html {
+	height: 100%;
+	background: -webkit-linear-gradient(orange, red);
+}
+
+body {
+	
+	/*background-image:url("/Users/Immanuel/AndroidStudioProjects/Locale/app/src/main/res/drawable/pencil.jpg”);*/
+	//background: -webkit-linear-gradient(orange, red)
+	
+
+}
+		
+p {
+	text-align:center;
+	color:white;
+	font-size:25px;
+	margin-top:6cm;
+	font-family:"Avenir Next"
+	
+}
+
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+	font-family:"Avenir Next";
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: white;
+  background-color:rgb(68,214,44);
+  border: none;
+  border-radius: 15px;
+  //box-shadow: 0 9px #999;
+}
+
+</style>
+
+<head>
+<script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
+
+<script>
+
+function initialize(){
+
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAydccaoiH5yk06fUM6USOF5-Q5lRt2NO8",
+    authDomain: "realnews-ebf35.firebaseapp.com",
+    databaseURL: "https://realnews-ebf35.firebaseio.com",
+    storageBucket: "realnews-ebf35.appspot.com",
+    messagingSenderId: "440201276876"
+  };
+
+  firebase.initializeApp(config);
+
+}
+</script>
+
+<script>
+
+ function fb_login(){
+
+ initialize();
+
+ var provider = new firebase.auth.FacebookAuthProvider();
+
+ firebase.auth().signInWithPopup(provider).then(function(result) {
+  // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+  var token = result.credential.accessToken;
+  // The signed-in user info.
+  var user = result.user;
+	alert(user.getUid());
+  // ...
+}).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // The email of the user's account used.
+  var email = error.email;
+  // The firebase.auth.AuthCredential type that was used.
+  var credential = error.credential;
+  // ...
+
+});
+
+}
+</script>
+
+<script>
+    function LoginPage(){
+      //alert('this one works too!'); 
+      window.location.href = "/Users/Immanuel/Documents/LoginPage.html";
+    }
+</script>
+</head>
+
+<body>
+
+<div style="text-align:center;">
+
+<p id="get_the_app"> <strong>Download the App on the Google Play Store </strong> </p>
+<img src="/Users/Immanuel/Desktop/practice_folder/google_play.png" width="300" height="100">
+
+</div>
+
+<div style="text-align:center;">
+<button class="button" onclick="LoginPage()" > <strong>Sign In</strong> </button>
+</div>
+
+</body>
+
+
+</html>
+
