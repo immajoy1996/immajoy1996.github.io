@@ -121,6 +121,12 @@ function initialize(){
       //alert('this one works too!'); 
       window.location.href = "immajoy1996.github.io/LoginPage.html"
     }
+	
+FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+});
+	
+	
 </script>
 </head>
 
@@ -135,6 +141,11 @@ function initialize(){
 
 <div style="text-align:center;">
 <button class="button" onclick="LoginPage()" > <strong>Sign In</strong> </button>
+
+<fb:login-button 
+  scope="public_profile,email"
+  onlogin="checkLoginState();">
+</fb:login-button>
 </div>
 
 </body>
