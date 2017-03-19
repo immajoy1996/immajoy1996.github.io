@@ -50,13 +50,11 @@ p {
 <head>
 <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
 
+
 <script>
-	
-	
-
-function initialize(){
-
+function Init_Firebase(){
   // Initialize Firebase
+  // TODO: Replace with your project's customized code snippet
   var config = {
     apiKey: "AIzaSyAydccaoiH5yk06fUM6USOF5-Q5lRt2NO8",
     authDomain: "realnews-ebf35.firebaseapp.com",
@@ -64,59 +62,44 @@ function initialize(){
     storageBucket: "realnews-ebf35.appspot.com",
     messagingSenderId: "440201276876"
   };
-
   firebase.initializeApp(config);
-
 }
-</script>
 
-<script>
-    function LoginPage(){
-      //alert('this one works too!'); 
-      window.location.href = "immajoy1996.github.io/LoginPage.html"
-    }
-	
-FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
+function SignIn(){
+
+var provider = new firebase.auth.FacebookAuthProvider();
+
+firebase.auth().signInWithPopup(provider).then(function(result) {
+  // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+  var token = result.credential.accessToken;
+  // The signed-in user info.
+  var user = result.user;
+  // ...
+}).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // The email of the user's account used.
+  var email = error.email;
+  // The firebase.auth.AuthCredential type that was used.
+  var credential = error.credential;
+  // ...
 });
-	
-function checkLoginState() {
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
+
 }
-	
-	
+
 </script>
-	
+
+
+
 </head>
-
-<body>
-	
-	<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '167024843812323',
-      cookie     : true,
-      xfbml      : true,
-      version    : 'v2.8'
-    });
-    FB.AppEvents.logPageView();   
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
 
 <div style="text-align:center;">
 
 <p id="get_the_app"> <strong>Download the App on the Google Play Store </strong> </p>
-<img src="immajoy1996.github.io/google_play.png" width="300" height="100" onclick="fb_login()">
+
+<img src="immajoy1996.github.io/google_play.png" width="300" height="100">
+
 
 </div>
 
@@ -124,10 +107,8 @@ function checkLoginState() {
 
 <fb:login-button 
   scope="public_profile,email"
-  onlogin="checkLoginState();"> Login with Facebook </fb:login-button>
+  onlogin=";"> Login with Facebook </fb:login-button>
 </div>
-
-</body>
 
 
 </html>
