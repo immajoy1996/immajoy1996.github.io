@@ -45,6 +45,11 @@ textarea {
 	
 }
 	
+.status{
+	font-family:"Avenir Next";
+	color:black;
+	}
+	
 
 .button {
   display: inline-block;
@@ -75,52 +80,9 @@ textarea {
 
 </style>
 
-<head>
+<div class="status" id="status">
+	</div>
 
-<script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js">
-
-function fb_login(){
-
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyAydccaoiH5yk06fUM6USOF5-Q5lRt2NO8",
-    authDomain: "realnews-ebf35.firebaseapp.com",
-    databaseURL: "https://realnews-ebf35.firebaseio.com",
-    storageBucket: "realnews-ebf35.appspot.com",
-    messagingSenderId: "440201276876"
-  };
-
-  firebase.initializeApp(config);
-
- var provider = new firebase.auth.FacebookAuthProvider();
-
- firebase.auth().signInWithPopup(provider).then(function(result) {
-  // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-  var token = result.credential.accessToken;
-  // The signed-in user info.
-  var user = result.user;
-  // ...
-}).catch(function(error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  // The email of the user's account used.
-  var email = error.email;
-  // The firebase.auth.AuthCredential type that was used.
-  var credential = error.credential;
-  // ...
-});
-
-
-</script>
-</head>
-
-<div class="loginBox" >
-
-	  <p class="paraStyle2">Login With Facebook</p>
-	
-	
-</div>
 
 
 </html>
