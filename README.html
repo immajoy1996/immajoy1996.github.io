@@ -67,8 +67,8 @@ p {
       testAPI();
     } else {
       // The person is not logged into your app or we are unable to tell.
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into this app.';
+      //document.getElementById('status').innerHTML = 'Please log ' +
+       // 'into this app.';
     }
   }
 
@@ -135,7 +135,7 @@ p {
   the FB.login() function when clicked.
 -->
 	
-<div id="status" style="text-align:right">
+<div id="status" style="text-align:left">
 	</div>
   
 <div style="text-align:center;">
@@ -149,7 +149,7 @@ p {
 
 <div style="text-align:center;">
 
-<fb:login-button scope="public_profile,email" size="medium" onlogin="checkLoginState();" data-auto-logout-link="true">
+<fb:login-button scope="public_profile,email" size="large" onlogin="checkLoginState();" data-auto-logout-link="true">
 </fb:login-button>
  
 </div>
