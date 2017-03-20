@@ -63,8 +63,12 @@ p {
     // Full docs on the response object can be found in the documentation
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
-      testAPI();
+	    document.getElementById("status").innerHTML =
+        "Welcome " + response.name + '!';
+      //testAPI();
     } else {
+	    document.getElementById("status").innerHTML ="";
+        
       // The person is not logged into your app or we are unable to tell.
       //document.getElementById('status').innerHTML = 'Please log ' +
        // 'into this app.';
