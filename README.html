@@ -68,6 +68,7 @@ p {
 	    document.getElementById("status").innerHTML ="";
         document.getElementById("download_the_app").style.visibility="visible";
 	document.getElementById("google_play").style.visibility="visible";
+	document.getElementById("write_article").style.visibility="hidden";
       // The person is not logged into your app or we are unable to tell.
       //document.getElementById('status').innerHTML = 'Please log ' +
        // 'into this app.';
@@ -130,6 +131,7 @@ p {
         "Welcome " + response.name + '!';
 	document.getElementById("download_the_app").style.visibility="hidden";
 	document.getElementById("google_play").style.visibility="hidden";
+	document.getElementById("write_article").style.visibility="visibile";
 	//window.location.href = 'immajoy1996.github.io/LoginPage.html' + '#' + response.name;
     });
 	  
@@ -153,6 +155,11 @@ p {
 
 
 </div>
+	
+<div style="text-align:center; display:none;" >
+	<button id="write_article">Write Article</button>
+</div>
+	
 
 <div style="text-align:center;">
 
