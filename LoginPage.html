@@ -49,18 +49,17 @@ p {
 </style>
 <head>
 	
-<script>
-  // This is called with the results from from FB.getLoginStatus().
-  function displayMsg(){
-	  var text = window.location.hash.substring(1);
-	  alert("Hello");
-	  document.getElementById("status").innerHTML="Welcome "+text+"!";
-</script>
 
 <title>FreeMyNews</title>
 <meta charset="UTF-8">
 </head>
 <body>
+	<script>
+  // This is called with the results from from FB.getLoginStatus().
+	  var text = window.location.hash.substring(1);
+	  alert("Hello");
+	  document.getElementById("status").innerHTML="Welcome "+text+"!";
+</script>
 
 <!--
   Below we include the Login Button social plugin. This button uses
