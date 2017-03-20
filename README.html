@@ -49,7 +49,7 @@ p {
 </style>
 <head>
 
-<title>Facebook Login JavaScript Example</title>
+<title>FreeMyNews</title>
 <meta charset="UTF-8">
 </head>
 <body>
@@ -124,7 +124,7 @@ p {
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
+        "Welcome " + response.name + '!';
     });
   }
 </script>
@@ -134,6 +134,9 @@ p {
   the JavaScript SDK to present a graphical Login button that triggers
   the FB.login() function when clicked.
 -->
+	
+<div id="status" style="text-align:right">
+	</div>
   
 <div style="text-align:center;">
 
@@ -151,8 +154,6 @@ p {
  
 </div>
 
-<div id="status">
-</div>
 
 </body>
 </html>
