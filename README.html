@@ -63,8 +63,9 @@ p {
     // Full docs on the response object can be found in the documentation
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
-      //window.location.href="immajoy1996.github.io/LoginPage.html";
+      // Logged into your app and Facebook.
       testAPI();
+	window.href=
     } else {
       // The person is not logged into your app or we are unable to tell.
       //document.getElementById('status').innerHTML = 'Please log ' +
@@ -105,6 +106,8 @@ p {
   FB.getLoginStatus(function(response) {
     statusChangeCallback(response);
   });
+
+  };
 
   // Load the SDK asynchronously
   (function(d, s, id) {
