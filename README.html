@@ -63,7 +63,7 @@ p {
     // Full docs on the response object can be found in the documentation
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
-      // Logged into your app and Facebook.
+      window.location.href="immajoy1996.github.io/LoginPage.html";
       testAPI();
     } else {
       // The person is not logged into your app or we are unable to tell.
@@ -119,7 +119,7 @@ p {
 
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
-  function testAPI() {
+  function testAPI(var id) {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
