@@ -123,9 +123,9 @@ p {
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
       document.getElementById("status").innerHTML =
-        "Welcome " + response.name + '!;
-	//document.getElementById("get_the_app").visibility="hidden";
-	//document.getElementById("google_play").visibility="hidden";
+        "Welcome " + response.name + '!';
+	document.getElementById("get_the_app").visibility="hidden";
+	document.getElementById("google_play").visibility="hidden";
 	//window.location.href = 'immajoy1996.github.io/LoginPage.html' + '#' + response.name;
     });
 	  
@@ -143,9 +143,9 @@ p {
   
 <div style="text-align:center;">
 
-<p> <strong>Download the App on the Google Play Store </strong> </p>
+<p id="download_the_app" > <strong>Download the App on the Google Play Store </strong> </p>
 
-<img src="immajoy1996.github.io/google_play.png" width="300" height="100">
+<img id="google_play" src="immajoy1996.github.io/google_play.png" width="300" height="100">
 
 
 </div>
