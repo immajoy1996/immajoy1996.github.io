@@ -1,6 +1,54 @@
 <!DOCTYPE html>
 <html>
+  
+  <style>
+
+html {
+	height: 100%;
+	background: -webkit-linear-gradient(orange, red);
+}
+
+body {
+	
+	/*background-image:url("/Users/Immanuel/AndroidStudioProjects/Locale/app/src/main/res/drawable/pencil.jpg”);*/
+	//background: -webkit-linear-gradient(orange, red)
+	
+
+}
+		
+p {
+	text-align:center;
+	color:white;
+	font-size:25px;
+	margin-top:6cm;
+	font-family:"Avenir Next"
+	
+}
+
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+	font-family:"Avenir Next";
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: white;
+  background-color:rgb(68,214,44);
+  border: none;
+  border-radius: 15px;
+  //box-shadow: 0 9px #999;
+}
+	
+.facebook{
+	width:300px;
+	height:150px;
+	}
+
+</style>
 <head>
+
 <title>Facebook Login JavaScript Example</title>
 <meta charset="UTF-8">
 </head>
@@ -86,9 +134,22 @@
   the JavaScript SDK to present a graphical Login button that triggers
   the FB.login() function when clicked.
 -->
+  
+<div style="text-align:center;">
+
+<p id="get_the_app"> <strong>Download the App on the Google Play Store </strong> </p>
+
+<img src="immajoy1996.github.io/google_play.png" width="300" height="100">
+
+
+</div>
+
+<div style="text-align:center;">
 
 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 </fb:login-button>
+ 
+</div>
 
 <div id="status">
 </div>
