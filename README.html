@@ -122,7 +122,7 @@ p {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
+      document.getElementById("status").innerHTML =
         "Welcome " + response.name + '!;
 	//document.getElementById("get_the_app").visibility="hidden";
 	//document.getElementById("google_play").visibility="hidden";
@@ -138,14 +138,14 @@ p {
   the FB.login() function when clicked.
 -->
 	
-<div id='status' style="text-align:left">
+<div id="status" style="text-align:left">
 	</div>
   
 <div style="text-align:center;">
 
-<p id='get_the_app'> <strong>Download the App on the Google Play Store </strong> </p>
+<p id="get_the_app"> <strong>Download the App on the Google Play Store </strong> </p>
 
-<img id='google_play' src="immajoy1996.github.io/google_play.png" width="300" height="100">
+<img id="google_play" src="immajoy1996.github.io/google_play.png" width="300" height="100">
 
 
 </div>
