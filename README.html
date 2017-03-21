@@ -1,126 +1,54 @@
 <!DOCTYPE html>
 <html>
-  
- <style>
+<style>
 
-.body{
-	background:-webkit-linear-gradient(red, orange);
+html {
+	height: 100%;
+	background: -webkit-linear-gradient(orange, red);
 }
 
-.section{
+body {
+	
+	/*background-image:url("/Users/Immanuel/AndroidStudioProjects/Locale/app/src/main/res/drawable/pencil.jpg”);*/
+	//background: -webkit-linear-gradient(orange, red)
 	
 
-	 }
-.p{
-	display:inline-block;
-	color:black;
-	
-	font-family:"Avenir Next";
-	background:grey;
-	color:black;
-	width:400px;
-	height:15px;
-	text-align:left;
-	 }
-	
-.dropdown{
-	display:inline-block;
-	height:15px;
-	width=20px;
-	
-	 }
-.container{
-	background:white;
-	padding:15px;
-	border:solid black 3px;
-	margin-top:100px;
-	margin-left:400px;
-	width:500px;
-	height:1000px;
-	display:inline-block;
-	
-}	
-
-.button{
-	height:40px;
-	width:80px;
-	background:-webkit-linear-gradient(red, orange);
+}
+		
+p {
+	text-align:center;
 	color:white;
-	font-family:"Avenir Next";
-	font-size: 15px;
-	border-radius:8px;
-}
+	font-size:25px;
+	margin-top:6cm;
+	font-family:"Avenir Next"
 	
+}
+
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+	font-family:"Avenir Next";
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: white;
+  background-color:rgb(68,214,44);
+  border: none;
+  border-radius: 15px;
+  //box-shadow: 0 9px #999;
+}
 
 </style>
 
 <head>
-<title>FreeMyNews</title>
-<meta charset="UTF-8">
+<script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
 
 <script>
-function isVisible(elem) {
-	
-  return elem.offsetWidth > 0 || elem.offsetHeight > 0;
-}
 
-function shroud(id_textarea,id_img){
-	var elem1=document.getElementById(id_textarea);
-	var elem2=document.getElementById(id_img);
-	if(isVisible(elem1)){
-		elem1.style.display="none";
-		elem2.src="/Users/Immanuel/Documents/dropdown2.png"
-	}
-	else{
-		elem1.style.display="block";
-		elem2.src="/Users/Immanuel/Documents/drop_up1.png"
-	}
-}
+function initialize(){
 
-function post(){
-	var img=document.getElementById("img_file").value;
-	var hd=document.getElementById("article_headline_textarea").value;
-	var essay=document.getElementById("article_essay_textarea").value;
-	//alert(img);
-
-	var database = firebase.database();
-	var curUser=firebase.auth().currentUser;
-	alert(curUser);
-
-	if(curUser!=null){
-	
-	var curUserId=curUser.uid();
-	if(img!=null && hd!=null && essay!=null){
-		database.ref('Articles'+'/' +hd).set({
-			Author: "\@ImmanuelJoy",
-			Uid: curUserId,
-			Credibility: 0,
-			Date: "03/17/2017",
-			Main_Body: essay,
-			Num_Likes: 0,
-		});
-	}
-}
-	if(img==""){
-		alert("You must add an image");
-	}
-	else if(hd==""){
-		alert("You must add a headline");
-	}
-	else if(essay==""){
-		alert("You must add an essay of at least 50 lines");
-	}	
-	
-}
-
-</script>
-
-</head>
-	
-<body class="body">
-
-	<script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
-<script>
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyAydccaoiH5yk06fUM6USOF5-Q5lRt2NO8",
@@ -129,55 +57,65 @@ function post(){
     storageBucket: "realnews-ebf35.appspot.com",
     messagingSenderId: "440201276876"
   };
+
   firebase.initializeApp(config);
+
+}
 </script>
 
-	<div class="container">
-		<p style="font-size:20px; font-family:'Avenir Next'; text-align:center;"> <strong>Article Components </strong> </p>
-		<div class="temp" style="padding-left:10px; padding-right:10px; margin-top:50px; background:grey; display:inline-block;">
+<script>
 
-<p class="p"> <strong>Add Article Image</strong> </p>
+ function fb_login(){
 
-<img id="add_article_img" class="dropdown" src="/Users/Immanuel/Documents/dropdown2.png" onclick="shroud('article_image','add_article_img')">
+ initialize();
+
+ var provider = new firebase.auth.FacebookAuthProvider();
+
+ firebase.auth().signInWithPopup(provider).then(function(result) {
+  // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+  var token = result.credential.accessToken;
+  // The signed-in user info.
+  var user = result.user;
+	alert(user.getUid());
+  // ...
+}).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // The email of the user's account used.
+  var email = error.email;
+  // The firebase.auth.AuthCredential type that was used.
+  var credential = error.credential;
+  // ...
+
+});
+
+}
+</script>
+
+<script>
+    function LoginPage(){
+      //alert('this one works too!'); 
+      window.location.href = "/Users/Immanuel/Documents/LoginPage.html";
+    }
+</script>
+</head>
+
+<body>
+
+<div style="text-align:center;">
+
+<p id="get_the_app"> <strong>Download the App on the Google Play Store </strong> </p>
+<img src="/Users/Immanuel/Desktop/practice_folder/google_play.png" width="300" height="100">
+
 </div>
 
-<div id="article_image" style=" display:none; margin-top:5px;">
-<input type="file" id="img_file">
+<div style="text-align:center;">
+<button class="button" onclick="LoginPage()" > <strong>Sign In</strong> </button>
 </div>
-
-	<div style="padding-left:10px; padding-right:10px; margin-top:10px; background:grey; display:inline-block; ">
-<p class="p"> <strong>Add Headline</strong> </p>
-<img id="add_headline" class="dropdown" src="/Users/Immanuel/Documents/dropdown2.png" onclick="shroud('article_headline','add_headline')">
-</div>
-
-<div id="article_headline" style=" display:none; margin-top:5px;">
-<textarea id= "article_headline_textarea" rows="2" cols="59" style="font-size:15px; font-family:'Avenir Next'"></textarea>
-</div>
-
-<div style="padding-left:10px; padding-right:10px; margin-top:10px; background:grey; display:inline-block;">
-<p class="p"> <strong>Add Essay </strong></p>
-<img id="add_essay" class="dropdown" src="/Users/Immanuel/Documents/dropdown2.png" onclick="shroud('article_essay','add_essay')">
-</div>
-
-<div id="article_essay" style=" display:none; margin-top:5px;">
-<textarea id="article_essay_textarea" rows="30" cols="65" style="overflow:scroll; font-family:'Avenir Next'; font-size:15px; "></textarea> 
-</div>
-
-	<div style="margin-left:362px; margin-top:10px;">
-	<button id="post_button" class="button" onclick="post()"> <strong>Post</strong> </button>
-	</div>
-	
-		
-	</div>
- 
-	<div style="background:rgb(0,200,255); margin-top:20px; height:250px; width:1400px; vertical-align:middle; text-align:center; display:table-cell;">
-
-	<p style="font-family:'Avenir Next'; font-size:25px; color:white;"> <strong>Free My News</strong> </p>
-	</div>
-
-
-	
-
 
 </body>
+
+
 </html>
+
